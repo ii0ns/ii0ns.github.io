@@ -18,10 +18,13 @@ layout: default
 <nav class="tabs" aria-label="Sections">
   <a href="#projects">Projects</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
 </nav>
-<section class="panel" id="projects"><h2>Projects</h2><div class="cards">
+<section class="panel" id="projects"><h2>Projects</h2>
+<input type="search" id="q" class="search" placeholder="Search projects by title, topic or tag" aria-label="Search projects" autocomplete="off">
+<p class="none" id="none" hidden>No project matches your search.</p>
+<div class="cards">
 {% assign items = site.projects | sort: "date" | reverse %}
-{% for pr in items %}{% assign more = pr.tags.size | minus: 3 %}
-<a class="card" href="{{ pr.url | relative_url }}">
+{% for pr in items %}{% assign more = pr.tags.size | minus: 3 %}{% capture hay %}{{ pr.title }} {{ pr.summary }} {{ pr.tags | join: ' ' }}{% endcapture %}
+<a class="card" href="{{ pr.url | relative_url }}" data-search="{{ hay | downcase | escape }}">
   <div class="thumb">{% if pr.cover %}<img src="{{ pr.cover | relative_url }}" alt="" loading="lazy">{% else %}<span>{{ pr.tags | first }}</span>{% endif %}</div>
   <div class="card-body">
     <time>{{ pr.date | date: "%B %Y" }}</time>
@@ -64,5 +67,16 @@ function show(){
 tabs.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();history.replaceState(null,'',a.getAttribute('href'));show();})});
 window.addEventListener('hashchange',show);
 show();
+})();
+</script>
+<script>
+(function(){
+var q=document.getElementById('q'),none=document.getElementById('none'),cards=[].slice.call(document.querySelectorAll('.card'));
+if(!q)return;
+q.addEventListener('input',function(){
+  var v=q.value.toLowerCase().trim(),n=0;
+  cards.forEach(function(c){var ok=!v||c.getAttribute('data-search').indexOf(v)>-1;c.hidden=!ok;if(ok)n++});
+  none.hidden=n>0;
+});
 })();
 </script>
