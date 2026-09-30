@@ -21,5 +21,5 @@ I’m continuously learning, exploring new areas of computer science, and lookin
 ## Contact
 
 - Email: younes.sah06@gmail.com
-- LinkedIn: [your profile](https://www.linkedin.com/in/sahraouiyounes)
+- LinkedIn: [Younes Sahraoui](https://www.linkedin.com/in/sahraouiyounes)
 - GitHub: [ii0ns](https://github.com/ii0ns)
