@@ -1,7 +1,8 @@
 ---
 title: "Red Team vs Blue Team — Part 1: Building the Lab"
 date: 2026-02-21 00:00:00 +0000
-categories: [Cybersecurity, Penetration Testing]
+summary: Full pentest of Metasploitable 2 in an isolated lab, from scanning to exploitation and reporting.
+cover: /assets/img/covers/homelab1.jpg
 tags: [homelab, pfsense, active-directory, tailscale, vmware, kali-linux, network-segmentation]
 ---
 
