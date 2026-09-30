@@ -20,7 +20,16 @@ layout: default
 </nav>
 <section class="panel" id="projects"><h2>Projects</h2><div class="cards">
 {% assign items = site.projects | sort: "date" | reverse %}
-{% for pr in items %}<a class="card" href="{{ pr.url | relative_url }}"><h3>{{ pr.title }}</h3><p>{{ pr.summary }}</p><ul class="chips">{% for t in pr.tags %}<li>{{ t }}</li>{% endfor %}</ul></a>{% endfor %}
+{% for pr in items %}{% assign more = pr.tags.size | minus: 3 %}
+<a class="card" href="{{ pr.url | relative_url }}">
+  <div class="thumb">{% if pr.cover %}<img src="{{ pr.cover | relative_url }}" alt="" loading="lazy">{% else %}<span>{{ pr.tags | first }}</span>{% endif %}</div>
+  <div class="card-body">
+    <time>{{ pr.date | date: "%B %Y" }}</time>
+    <h3>{{ pr.title }}</h3>
+    <p>{% if pr.summary %}{{ pr.summary }}{% else %}{{ pr.excerpt | strip_html | strip | truncate: 130 }}{% endif %}</p>
+    <ul class="chips">{% for t in pr.tags limit: 3 %}<li>{{ t }}</li>{% endfor %}{% if more > 0 %}<li>+{{ more }}</li>{% endif %}</ul>
+  </div>
+</a>{% endfor %}
 </div></section>
 <section class="panel" id="about"><h2>About</h2><div>{% for t in p.about %}<p>{{ t }}</p>{% endfor %}</div></section>
 <section class="panel" id="skills"><h2>Skills</h2><div class="groups">
