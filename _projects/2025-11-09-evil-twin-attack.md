@@ -35,7 +35,7 @@ ls
 
 The `-i` flag tells Fluxion to check and install its dependencies automatically. When you run it, you'll be greeted by Fluxion's ASCII logo while it scans for missing packages.
 
-![](assets/Evil-Twin-prjct-media/im1.png)
+![](/assets/Evil-Twin-prjct-media/im1.png)
 
 If any dependencies are flagged as **missing**, install them manually before moving on. In this demo, everything was already present so we went straight to the attack.
 
@@ -47,7 +47,7 @@ After the install check, Fluxion presents you with the attack menu. Since we nee
 
 Next, Fluxion asks which wireless interface to use. Our external adapter shows up as **wlan0**, so we select that. Fluxion automatically puts the interface into **monitor mode** — you'll see this confirmed in the terminal.
 
-![](assets/Evil-Twin-prjct-media/im2.png)
+![](/assets/Evil-Twin-prjct-media/im2.png)
 
 ---
 
@@ -55,7 +55,7 @@ Next, Fluxion asks which wireless interface to use. Our external adapter shows u
 
 Now we tell Fluxion to scan all available SSIDs on the **2.4 GHz** band. A new `xterm` window opens and starts listing every Wi-Fi network in range.
 
-![](assets/Evil-Twin-prjct-media/im3.png)
+![](/assets/Evil-Twin-prjct-media/im3.png)
 
 Let the scan run for a bit until your target network appears in the list. Once you see it, press **Ctrl+C** to stop the scan and return to the main terminal.
 
@@ -88,7 +88,7 @@ Configuration done - the attack starts. A log viewer window opens showing real-t
 
 Fluxion begins sending **deauthentication packets** via mdk4, kicking every client off the target network. When they try to reconnect, their device and the router perform the 4-way handshake — and Fluxion captures it.
 
-![](assets/Evil-Twin-prjct-media/im4.png)
+![](/assets/Evil-Twin-prjct-media/im4.png)
 
 Once the log shows a **valid hash captured**, the hard part is done. Close the log viewer window. Fluxion will ask if you want to select another attack — and that's exactly what we'll do next.
 
@@ -135,11 +135,11 @@ Everything is configured. Fluxion launches the attack and several `xterm` window
 
 From the victim's device, two networks appear with the **exact same name** — one is the real AP, the other is ours. Since we're not using the emulated mode, our rogue network shows "No Internet Access," but users often still try it thinking it's a temporary issue with their router.
 
-![](assets/Evil-Twin-prjct-media/im5.jpg)
+![](/assets/Evil-Twin-prjct-media/im5.jpg)
 
 When the victim connects to the rogue network, their browser automatically opens a **captive portal page** — styled to look like a router login page — asking for the Wi-Fi password.
 
-![](assets/Evil-Twin-prjct-media/im6.jpg)
+![](/assets/Evil-Twin-prjct-media/im6.jpg)
 
 If the victim enters the wrong password, the page simply reloads and asks again. Under the hood, each attempt is hashed and compared against the handshake we captured in Step 5. The moment the hash matches — the password is correct.
 
