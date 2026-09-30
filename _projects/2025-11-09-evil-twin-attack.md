@@ -2,7 +2,7 @@
 title: "Evil Twin Attack with Fluxion"
 date: 2025-11-09 00:00:00 +0000
 summary: Full pentest of Metasploitable 2 in an isolated lab, from scanning to exploitation and reporting.
-cover: /assets/img/covers/evilTwin.jpg
+cover: /assets/img/covers/evilTwin.png
 tags: [wifi, fluxion, evil-twin, kali-linux]
 ---
 
