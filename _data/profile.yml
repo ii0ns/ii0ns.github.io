@@ -22,6 +22,15 @@ skills:
     items: Git, Docker, VS Code
   - group: Spoken languages
     items: Arabic (native), French (Professional working proficiency), English (Professional working proficiency)
+experience:
+  - date: "May 2026 - July 2026"
+    title: "IT Intern"
+    place: "Lear Corporation"
+    text: "WHAT I LEARNED"
+  - date: "June 2025 - July 2025"
+    title: "Network Security Intern"
+    place: "Provincial Directorate of National Education, Preschool and Sports"
+    text: "WHAT I LEARNED"
 education:
   - date: "2026 - now"
     title: "Engineering degree"
