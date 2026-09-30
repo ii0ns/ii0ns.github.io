@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+<meta name="description" content="{{ site.description }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="{{ '/' | relative_url }}">{{ site.data.profile.name }}</a>
+  <nav>
+    <a href="{{ '/#about' | relative_url }}">About</a>
+    <a href="{{ '/#skills' | relative_url }}">Skills</a>
+    <a href="{{ '/#projects' | relative_url }}">Projects</a>
+    <a href="{{ '/#education' | relative_url }}">Education</a>
+    <a href="{{ '/#contact' | relative_url }}">Contact</a>
+  </nav>
+</div></header>
+<main>{{ content }}</main>
+<footer><div class="wrap">&copy; {{ 'now' | date: '%Y' }} {{ site.data.profile.name }}</div></footer>
+</body>
+</html>

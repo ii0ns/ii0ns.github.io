@@ -1,0 +1,38 @@
+# Edit this file: it fills the whole homepage. Keep the indentation (spaces only).
+name: Younes Sahraoui
+role: Engineering student in computer science
+tagline: Engineering technology with security and intelligence in mind.
+location: "Calais, France"
+email: youne.sah06@gmail.com
+github: https://github.com/ii0ns
+linkedin: https://www.linkedin.com/in/sahraouiyounes
+avatar: /assets/img/avatar.jpg
+cv: /assets/cv.pdf
+about:
+  - I’m an engineering student in computer science, interested in understanding how technology works beneath the surface and turning that understanding into practical solutions.
+  - My interests sit at the intersection of artificial intelligence, cybersecurity, systems and networks. I enjoy working on projects that require both technical problem-solving and curiosity, whether that means building software, experimenting with infrastructure, analyzing data, or exploring how systems can be made more secure.
+  - This portfolio is a collection of the things I build, experiment with, and learn along the way. Some projects are polished, others are experiments, but each one represents a problem I wanted to understand or a skill I wanted to develop.
+  - I’m continuously learning, exploring new areas of computer science, and looking for opportunities to turn ideas into useful things.
+skills:
+  - group: Languages
+    items: C, Python, JavaScript, Shell
+  - group: Systems and networks
+    items: Linux, Windows Server, TCP/IP, Virtualization
+  - group: Tools
+    items: Git, Docker, VS Code
+  - group: Spoken languages
+    items: Arabic (native), French (Professional working proficiency), English (Professional working proficiency)
+education:
+  - date: "2026 - now"
+    title: "Engineering degree"
+    place: "École d'Ingénieurs du Littoral Côte d'Opale — Calais"
+  - date: "2024 - 2026"
+    title: "DUT"
+    place: "École Supérieure de Technologie — Kénitra"
+certifications:
+  - title: "Agile Project Management Certificate"
+    place: "HP Life"
+    date: "2026"
+  - title: "Digital Security Fundamentals"
+    place: "Simplilearn SkillUp"
+    date: "2025"
