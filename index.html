@@ -15,24 +15,27 @@ layout: default
   <img class="avatar" src="{{ p.avatar | relative_url }}" alt="Portrait of {{ p.name }}">
 </div>
 <div class="wrap">
-<section id="about"><h2>About</h2><div>{% for t in p.about %}<p>{{ t }}</p>{% endfor %}</div></section>
-<section id="skills"><h2>Skills</h2><div class="groups">
-{% for g in p.skills %}<div><h3>{{ g.group }}</h3><ul class="chips">{% for i in g.items %}<li>{{ i }}</li>{% endfor %}</ul></div>{% endfor %}
-</div></section>
-<section id="projects"><h2>Projects</h2><div class="cards">
+<nav class="tabs" aria-label="Sections">
+  <a href="#projects">Projects</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#certifications">Certifications</a><a href="#contact">Contact</a>
+</nav>
+<section class="panel" id="projects"><h2>Projects</h2><div class="cards">
 {% assign items = site.projects | sort: "date" | reverse %}
 {% for pr in items %}<a class="card" href="{{ pr.url | relative_url }}"><h3>{{ pr.title }}</h3><p>{{ pr.summary }}</p><ul class="chips">{% for t in pr.tags %}<li>{{ t }}</li>{% endfor %}</ul></a>{% endfor %}
 </div></section>
-<section id="experience"><h2>Experience</h2><div>
+<section class="panel" id="about"><h2>About</h2><div>{% for t in p.about %}<p>{{ t }}</p>{% endfor %}</div></section>
+<section class="panel" id="skills"><h2>Skills</h2><div class="groups">
+{% for g in p.skills %}<div><h3>{{ g.group }}</h3><ul class="chips">{% for i in g.items %}<li>{{ i }}</li>{% endfor %}</ul></div>{% endfor %}
+</div></section>
+<section class="panel" id="experience"><h2>Experience</h2><div>
 {% for e in p.experience %}<div class="row"><span class="date">{{ e.date }}</span><div><h3>{{ e.title }}</h3><p class="place">{{ e.place }}</p><p>{{ e.text }}</p></div></div>{% endfor %}
 </div></section>
-<section id="education"><h2>Education</h2><div>
+<section class="panel" id="education"><h2>Education</h2><div>
 {% for e in p.education %}<div class="row"><span class="date">{{ e.date }}</span><div><h3>{{ e.title }}</h3><p class="place">{{ e.place }}</p><p>{{ e.text }}</p></div></div>{% endfor %}
 </div></section>
-<section id="certifications"><h2>Certifications</h2><div>
+<section class="panel" id="certifications"><h2>Certifications</h2><div>
 {% for c in p.certifications %}<div class="row"><span class="date">{{ c.date }}</span><div><h3>{{ c.title }}</h3><p class="place">{{ c.place }}</p></div></div>{% endfor %}
 </div></section>
-<section id="contact"><h2>Contact</h2><div>
+<section class="panel" id="contact"><h2>Contact</h2><div>
 <p>Open to work-study opportunities. The fastest way to reach me is by email.</p>
 <div class="actions">
   <a class="btn primary" href="mailto:{{ p.email }}">{{ p.email }}</a>
@@ -40,3 +43,17 @@ layout: default
   <a class="btn" href="{{ p.github }}">GitHub</a>
 </div></div></section>
 </div>
+<script>
+(function(){
+var panels=[].slice.call(document.querySelectorAll('.panel')),tabs=[].slice.call(document.querySelectorAll('.tabs a'));
+function show(){
+  var h=location.hash.slice(1);
+  if(!panels.some(function(p){return p.id===h})) h='projects';
+  panels.forEach(function(p){p.classList.toggle('active',p.id===h)});
+  tabs.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+h)});
+}
+tabs.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();history.replaceState(null,'',a.getAttribute('href'));show();})});
+window.addEventListener('hashchange',show);
+show();
+})();
+</script>

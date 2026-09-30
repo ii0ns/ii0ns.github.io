@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 <meta name="description" content="{{ site.description }}">
+<script>document.documentElement.className+=' js'</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
@@ -14,10 +15,8 @@
 <header class="top"><div class="wrap">
   <a class="brand" href="{{ '/' | relative_url }}">{{ site.data.profile.name }}</a>
   <nav>
-    <a href="{{ '/#about' | relative_url }}">About</a>
-    <a href="{{ '/#skills' | relative_url }}">Skills</a>
     <a href="{{ '/#projects' | relative_url }}">Projects</a>
-    <a href="{{ '/#education' | relative_url }}">Education</a>
+    <a href="{{ '/#about' | relative_url }}">About</a>
     <a href="{{ '/#contact' | relative_url }}">Contact</a>
   </nav>
 </div></header>
