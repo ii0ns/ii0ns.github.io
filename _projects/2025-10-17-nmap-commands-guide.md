@@ -1,9 +1,9 @@
 ---
 title: "Nmap Commands Guide — Essential Scanning Techniques"
 date: 2025-10-17 00:00:00 +0000
-categories: [Cybersecurity, Networking]
+summary: Full pentest of Metasploitable 2 in an isolated lab, from scanning to exploitation and reporting.
+cover: /assets/img/covers/nmapGuide.jpg
 tags: [nmap, reconnaissance, port-scanning, pentesting]
-comments: true
 ---
 
 Nmap is one of the most powerful tools in a cybersecurity professional's arsenal. This guide covers essential Nmap commands with practical explanations of what each one does and when to use it.
