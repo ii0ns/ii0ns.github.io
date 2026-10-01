@@ -4,6 +4,7 @@ date: 2026-02-21 00:00:00 +0000
 summary: Full pentest of Metasploitable 2 in an isolated lab, from scanning to exploitation and reporting.
 cover: /assets/img/covers/homelab1.png
 tags: [homelab, pfsense, active-directory, tailscale, vmware, kali-linux, network-segmentation]
+featured: true
 ---
 
 > ⚠︎ **Disclaimer:** This project was conducted in a fully isolated virtual lab for academic purposes only. All techniques described are strictly educational and were performed in a controlled environment with no real systems involved.
