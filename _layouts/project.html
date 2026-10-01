@@ -7,6 +7,11 @@ layout: default
     <a class="btn primary back-btn" href="{{ '/#projects' | relative_url }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>Back to projects</a>
     <h1>{{ page.title }}</h1>
     <p class="meta">{{ page.date | date: "%B %Y" }}{% if page.tags %} &middot; {{ page.tags | join: ", " }}{% endif %}</p>
+    {% if page.role or page.tools or page.result %}<div class="facts-strip">
+      {% if page.role %}<div><span>Role</span><p>{{ page.role }}</p></div>{% endif %}
+      {% if page.tools %}<div><span>Tools</span><p>{{ page.tools | join: ", " }}</p></div>{% endif %}
+      {% if page.result %}<div><span>Result</span><p>{{ page.result }}</p></div>{% endif %}
+    </div>{% endif %}
     <div class="prose" id="prose">{{ content }}</div>
     <a class="btn back-btn" href="{{ '/#projects' | relative_url }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3L5 8l5 5"/></svg>Back to projects</a>
   </article>

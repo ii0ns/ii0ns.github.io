@@ -4,6 +4,9 @@ date: 2025-05-02 00:00:00 +0000
 summary: Full pentest of Metasploitable 2 in an isolated lab, from scanning to exploitation and reporting.
 cover: /assets/img/covers/EurUsdRF.jpg
 tags: [python, random-forest, forex, time-series, sklearn, yfinance]
+role: Modeling and evaluation
+tools: [Python, scikit-learn, yfinance]
+result: R² 0.95 and 74.76% directional accuracy
 ---
 
 > **TL;DR** — Raw price data alone isn't useful. We engineered 36 features (returns, volatility, RSI, lag windows), used a proper time-based split to avoid leakage, and trained a Random Forest reaching R² = 0.95 and 74.76% directional accuracy. Built by a team of three, each handling a key part: data, modeling, and evaluation.
