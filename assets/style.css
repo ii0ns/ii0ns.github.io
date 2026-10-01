@@ -113,3 +113,7 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:20}
 @media(max-width:900px){.project-page{grid-template-columns:1fr}.toc{display:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.toc-bar,.toc a{transition:none}}
+
+/* Buttons with icons */
+.btn.has-icon{display:inline-flex;align-items:center;gap:10px}
+.btn.has-icon svg{width:18px;height:18px;flex:none}
