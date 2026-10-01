@@ -15,13 +15,13 @@ about:
   - I’m continuously learning, exploring new areas of computer science, and looking for opportunities to turn ideas into useful things.
 skills:
   - group: Languages
-    items: C, Python, JavaScript, Shell
+    items: [C, Python, JavaScript, Shell]
   - group: Systems and networks
     items: Linux, Windows Server, TCP/IP, Virtualization
   - group: Tools
     items: Git, Docker, VS Code
   - group: Spoken languages
-    items: Arabic (native), French (Professional working proficiency), English (Professional working proficiency)
+    items: [Arabic (native), French (Professional working proficiency), English (Professional working proficiency)]
 experience:
   - date: "May 2026 - July 2026"
     title: "IT Intern"

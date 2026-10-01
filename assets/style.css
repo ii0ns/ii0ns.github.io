@@ -79,3 +79,11 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 .search{width:100%;max-width:420px;padding:11px 16px;margin-bottom:24px;border:1.5px solid var(--line);border-radius:10px;background:var(--soft);color:var(--ink);font:inherit;font-size:16px}
 .search:focus{outline:none;border-color:var(--accent);background:#fff}
 .none{color:var(--muted)}
+
+/* Skills */
+.groups{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.skill-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.skill-card h3{font-size:17px;color:var(--ink);margin:0 0 14px;font-weight:800}
+.skill-card .chips{gap:10px;margin:0}
+.skill-card .chips li{background:#eaf3ff;color:var(--accent-dark);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600;transition:background .15s,color .15s}
+.skill-card .chips li:hover{background:var(--accent);color:#fff}
