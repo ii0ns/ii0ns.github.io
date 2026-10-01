@@ -87,3 +87,10 @@ footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-s
 .skill-card .chips{gap:10px;margin:0}
 .skill-card .chips li{background:#eaf3ff;color:var(--accent-dark);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600;transition:background .15s,color .15s}
 .skill-card .chips li:hover{background:var(--accent);color:#fff}
+
+/* Centered hero, no avatar */
+.hero{justify-content:center;text-align:center;padding-top:48px}
+.hero .lead{margin:0 auto}
+.hero .actions{justify-content:center}
+.tabs{justify-content:safe center}
+@media(max-width:640px){.hero{flex-direction:column;align-items:center;padding-top:32px}}
