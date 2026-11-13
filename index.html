@@ -1,0 +1,436 @@
+<!doctype html>
+<!--
+  Production seed — UI ported from the approved design package prototype.
+  Text comes from assets/js/i18n.js (data-i18n keys); section data from assets/js/app.js.
+  Personal content is filled in. Remaining placeholders (`class="ph"`) are limited to the demo
+  projects and the project / blog / article views until real project material is supplied.
+  Prototype-only demo controls (control panel, styleguide, toast marker) have been removed.
+-->
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Younes Sahraoui — Portfolio</title>
+  <meta name="description" content="Portfolio de Younes Sahraoui, élève ingénieur en informatique : formation, compétences, projets et expériences.">
+  <meta name="color-scheme" content="dark light">
+  <script>
+    /* Set theme + language before first paint (avoids a flash). */
+    (function () {
+      try {
+        var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+        var l = localStorage.getItem("lang"); if (l === "en" || l === "fr") document.documentElement.lang = l;
+      } catch (e) {}
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main" data-i18n="a11y.skip">Aller au contenu</a>
+
+<!-- ============================ HEADER / NAV ============================ -->
+<header class="site-header" id="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="#top" data-route-home aria-label="Home">
+      <span class="brand__mark" aria-hidden="true">&gt;_</span>
+      <span class="brand__name"><span data-i18n="brand.name">Younes Sahraoui</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Main" data-i18n-attr="aria-label:nav.label">
+      <ul class="nav__list" id="nav-list">
+        <li><a class="nav__link" href="#about" data-section="about"><span class="nav__num">01</span><span data-i18n="nav.home">Accueil</span></a></li>
+        <li><a class="nav__link" href="#education" data-section="education"><span class="nav__num">02</span><span data-i18n="nav.education">Formation</span></a></li>
+        <li><a class="nav__link" href="#skills" data-section="skills"><span class="nav__num">03</span><span data-i18n="nav.skills">Compétences</span></a></li>
+        <li><a class="nav__link" href="#projects" data-section="projects"><span class="nav__num">04</span><span data-i18n="nav.projects">Projets</span></a></li>
+        <li><a class="nav__link" href="#experience" data-section="experience"><span class="nav__num">05</span><span data-i18n="nav.experience">Expérience</span></a></li>
+        <li><a class="nav__link" href="#certifications" data-section="certifications"><span class="nav__num">06</span><span data-i18n="nav.certifications">Certifications</span></a></li>
+        <li><a class="nav__link" href="#contact" data-section="contact"><span class="nav__num">07</span><span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="header-tools">
+      <div class="lang-switch" role="group" aria-label="Langue" data-i18n-attr="aria-label:lang.label">
+        <button type="button" class="lang-switch__btn" data-lang="fr" lang="fr" aria-pressed="true" aria-label="Français">FR</button>
+        <button type="button" class="lang-switch__btn" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
+      </div>
+      <button type="button" class="icon-btn theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Thème" data-i18n-attr="aria-label:theme.toggle">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-panel" aria-label="Menu" data-i18n-attr="aria-label:menu.label">
+        <svg class="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile / tablet navigation panel -->
+<div class="menu-panel" id="menu-panel" hidden>
+  <div class="menu-panel__inner">
+    <nav aria-label="Main" data-i18n-attr="aria-label:nav.label">
+      <ul class="menu-list" id="menu-list">
+        <li><a href="#about" data-section="about"><span class="nav__num">01</span><span data-i18n="nav.homeLong">Accueil / À propos</span></a></li>
+        <li><a href="#education" data-section="education"><span class="nav__num">02</span><span data-i18n="nav.education">Formation</span></a></li>
+        <li><a href="#skills" data-section="skills"><span class="nav__num">03</span><span data-i18n="nav.skills">Compétences</span></a></li>
+        <li><a href="#projects" data-section="projects"><span class="nav__num">04</span><span data-i18n="nav.projects">Projets</span></a></li>
+        <li><a href="#experience" data-section="experience"><span class="nav__num">05</span><span data-i18n="nav.experience">Expérience</span></a></li>
+        <li><a href="#certifications" data-section="certifications"><span class="nav__num">06</span><span data-i18n="nav.certifications">Certifications</span></a></li>
+        <li><a href="#contact" data-section="contact"><span class="nav__num">07</span><span data-i18n="nav.contact">Contact</span></a></li>
+      </ul>
+    </nav>
+    <div class="menu-panel__cv">
+      <span class="menu-panel__label" data-i18n="cv.label">Curriculum vitæ</span>
+      <a class="btn" href="assets/cv/cv-fr.pdf" data-cv="fr" download data-i18n="cv.fr">CV — Français (PDF)</a>
+      <a class="btn btn--ghost" href="assets/cv/cv-en.pdf" data-cv="en" download data-i18n="cv.en">CV — English (PDF)</a>
+    </div>
+  </div>
+</div>
+
+<main id="main" tabindex="-1">
+
+<!-- ============================== HOME VIEW ============================== -->
+<div class="view" id="view-home">
+
+  <!-- 01 · HOME / ABOUT -->
+  <section class="section" id="about" aria-labelledby="h-about">
+    <div class="container">
+      <div class="hero">
+        <h1 class="hero__title" id="h-about"><span data-i18n="brand.name">Younes Sahraoui</span></h1>
+        <p class="hero__role" data-i18n="hero.role">Étudiant ingénieur en informatique.</p>
+
+        <!-- Availability indicator: hidden unless AVAILABILITY has at least one active entry -->
+        <p class="availability" id="availability" hidden role="status" data-proto-hook="availability">
+          <span class="availability__dot" aria-hidden="true"></span>
+          <span class="availability__text" id="availability-text"></span>
+        </p>
+
+        <p class="hero__lead" data-i18n-html="hero.lead">…</p>
+
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="#projects" data-i18n="cta.projects">Voir mes projets</a>
+          <details class="cv-split">
+            <summary class="btn" role="button" aria-haspopup="true"><span data-i18n="cta.cv">Télécharger mon CV</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </summary>
+            <div class="cv-menu">
+              <a href="assets/cv/cv-fr.pdf" data-cv="fr" download><span data-i18n="cv.fr">CV — Français (PDF)</span><span class="tag">cv-fr.pdf</span></a>
+              <a href="assets/cv/cv-en.pdf" data-cv="en" download><span data-i18n="cv.en">CV — English (PDF)</span><span class="tag">cv-en.pdf</span></a>
+            </div>
+          </details>
+          <a class="btn btn--ghost" href="#contact" data-i18n="cta.contact">Me contacter</a>
+        </div>
+      </div>
+
+      <div class="prose reveal" style="margin-top: var(--space-9)">
+        <h2 class="sr-only" data-i18n="about.heading">À propos</h2>
+        <p data-i18n-html="about.p1">…</p>
+        <p data-i18n-html="about.p2">…</p>
+        <p data-i18n-html="about.p3">…</p>
+      </div>
+
+      <div class="reveal" style="margin-top: var(--space-6)">
+        <h3 class="subhead" data-i18n="about.interestsTitle">Ce qui m'intéresse</h3>
+        <ul class="chips" aria-label="Centres d'intérêt" data-i18n-attr="aria-label:about.interestsTitle">
+          <li class="chip chip--accent"><span data-i18n="about.interest1">Infrastructures et réseaux</span></li>
+          <li class="chip chip--accent"><span data-i18n="about.interest2">Cybersécurité</span></li>
+          <li class="chip chip--accent"><span data-i18n="about.interest3">Intelligence artificielle</span></li>
+          <li class="chip chip--accent"><span data-i18n="about.interest4">Administration système</span></li>
+        </ul>
+      </div>
+
+      <div style="margin-top: var(--space-9)">
+        <div class="section-head reveal">
+          <h2 class="section-head__title" data-i18n="featured.title">Projets à la une</h2>
+        </div>
+        <div class="featured" id="featured-projects"></div>
+        <p class="featured__more"><a class="link link--arrow link--accent" href="#projects" data-i18n="featured.all">Voir tous les projets</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 · EDUCATION -->
+  <section class="section" id="education" aria-labelledby="h-education">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-head__num">02</span><h2 class="section-head__title" id="h-education" data-i18n="edu.title">Formation</h2></div>
+      <ol class="timeline reveal" id="edu-list" aria-label="Parcours académique" data-i18n-attr="aria-label:edu.title"></ol>
+    </div>
+  </section>
+
+  <!-- 03 · SKILLS -->
+  <section class="section" id="skills" aria-labelledby="h-skills">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-head__num">03</span><h2 class="section-head__title" id="h-skills" data-i18n="skills.title">Compétences</h2></div>
+      <div class="skills-grid reveal" id="skills-grid"></div>
+    </div>
+  </section>
+
+  <!-- 04 · PROJECTS -->
+  <section class="section" id="projects" aria-labelledby="h-projects">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-head__num">04</span><h2 class="section-head__title" id="h-projects" data-i18n="projects.title">Projets</h2></div>
+      <div class="filter reveal" id="project-filter" role="group" aria-label="Filtrer" data-i18n-attr="aria-label:projects.filter">
+        <button type="button" class="filter__btn" data-filter="all" aria-pressed="true" data-i18n="projects.all">Tous</button>
+        <button type="button" class="filter__btn" data-filter="individual" aria-pressed="false" data-i18n="projects.individual">Individuels</button>
+        <button type="button" class="filter__btn" data-filter="group" aria-pressed="false" data-i18n="projects.group">En groupe</button>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+      <p class="form__status" id="filter-status" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- 05 · EXPERIENCE -->
+  <section class="section" id="experience" aria-labelledby="h-experience">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-head__num">05</span><h2 class="section-head__title" id="h-experience" data-i18n="exp.title">Expérience</h2></div>
+      <ol class="timeline reveal" id="exp-list"></ol>
+    </div>
+  </section>
+
+  <!-- 06 · CERTIFICATIONS -->
+  <section class="section" id="certifications" aria-labelledby="h-certifications">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-head__num">06</span><h2 class="section-head__title" id="h-certifications" data-i18n="certs.title">Certifications</h2></div>
+      <ul class="cert-list reveal" id="cert-list"></ul>
+    </div>
+  </section>
+
+  <!-- 07 · CONTACT -->
+  <section class="section" id="contact" aria-labelledby="h-contact">
+    <div class="container">
+      <div class="section-head reveal"><span class="section-head__num">07</span><h2 class="section-head__title" id="h-contact" data-i18n="contact.title">Contact</h2></div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <p class="prose" data-i18n="contact.intro">Un projet, une opportunité ou simplement envie d'échanger ? Je serais ravi de discuter avec vous.</p>
+          <ul class="contact-links">
+            <li class="contact-item">
+              <a class="contact-link" href="mailto:younes.sah06@gmail.com">
+                <span class="contact-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+                <span class="contact-link__body"><span class="contact-link__label" data-i18n="contact.email">Email</span><span class="contact-link__value">younes.sah06@gmail.com</span></span>
+              </a>
+              <button type="button" class="contact-copy" data-copy-email="younes.sah06@gmail.com" data-i18n-attr="aria-label:contact.copyEmail;title:contact.copyEmail">
+                <span class="contact-copy__icon" aria-hidden="true"><svg class="contact-copy__copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><svg class="contact-copy__check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6"/></svg></span>
+                <span class="contact-copy__text" data-i18n="contact.copy">Copier</span>
+              </button>
+              <span class="sr-only" id="copy-status" role="status" aria-live="polite"></span>
+            </li>
+            <li class="contact-item">
+              <a class="contact-link" href="https://www.linkedin.com/in/sahraouiyounes/" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></span>
+                <span class="contact-link__body"><span class="contact-link__label">LinkedIn</span><span class="contact-link__value">linkedin.com/in/sahraouiyounes</span></span>
+                <span class="contact-link__ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M21 3l-9 9"/><path d="M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg></span>
+                <span class="sr-only" data-i18n="contact.external">Ouvre dans un nouvel onglet</span>
+              </a>
+            </li>
+            <li class="contact-item">
+              <a class="contact-link" href="https://github.com/ii0ns/" target="_blank" rel="noopener noreferrer">
+                <span class="contact-link__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.35.78 1.05.78 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg></span>
+                <span class="contact-link__body"><span class="contact-link__label">GitHub</span><span class="contact-link__value">github.com/ii0ns</span></span>
+                <span class="contact-link__ext" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3h7v7"/><path d="M21 3l-9 9"/><path d="M10 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"/></svg></span>
+                <span class="sr-only" data-i18n="contact.external">Ouvre dans un nouvel onglet</span>
+              </a>
+            </li>
+          </ul>
+
+          <h3 class="subhead contact__subhead" data-i18n="cv.label">Curriculum vitæ</h3>
+          <div class="cv-cards">
+            <a class="cv-card" href="assets/cv/cv-fr.pdf" data-cv="fr" download hreflang="fr" type="application/pdf">
+              <span class="cv-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg></span>
+              <span class="cv-card__body">
+                <span class="cv-card__title" data-i18n="cv.frTitle">CV — Français</span>
+                <span class="cv-card__meta"><span class="cv-card__lang" lang="fr">FR</span><span data-i18n="cv.download">Télécharger</span><span aria-hidden="true">·</span><span data-i18n="cv.pdf">PDF</span></span>
+              </span>
+              <span class="cv-card__action" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg></span>
+            </a>
+            <a class="cv-card" href="assets/cv/cv-en.pdf" data-cv="en" download hreflang="en" type="application/pdf">
+              <span class="cv-card__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg></span>
+              <span class="cv-card__body">
+                <span class="cv-card__title" data-i18n="cv.enTitle">CV — Anglais</span>
+                <span class="cv-card__meta"><span class="cv-card__lang" lang="en">EN</span><span data-i18n="cv.download">Télécharger</span><span aria-hidden="true">·</span><span data-i18n="cv.pdf">PDF</span></span>
+              </span>
+              <span class="cv-card__action" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg></span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Optional contact form (remove this column to drop the form) -->
+        <form class="form reveal" id="contact-form" novalidate>
+          <h3 class="subhead" data-i18n="form.title">Envoyer un message</h3>
+          <div class="field">
+            <label for="f-name"><span data-i18n="form.name">Nom</span> <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="f-name" name="name" type="text" autocomplete="name" maxlength="100" required aria-describedby="f-name-err">
+            <p class="field__error" id="f-name-err" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-email"><span data-i18n="form.email">Adresse e-mail</span> <span class="req" aria-hidden="true">*</span></label>
+            <input class="input" id="f-email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="f-email-hint f-email-err">
+            <span class="hint" id="f-email-hint" data-i18n="form.emailHint">Uniquement utilisée pour vous répondre.</span>
+            <p class="field__error" id="f-email-err" hidden></p>
+          </div>
+          <div class="field">
+            <label for="f-subject"><span data-i18n="form.subject">Sujet</span> <span class="optional" data-i18n="form.optional">(facultatif)</span></label>
+            <input class="input" id="f-subject" name="subject" type="text" autocomplete="off" maxlength="150">
+          </div>
+          <div class="field">
+            <label for="f-msg"><span data-i18n="form.message">Message</span> <span class="req" aria-hidden="true">*</span></label>
+            <textarea class="textarea" id="f-msg" name="message" maxlength="5000" required aria-describedby="f-msg-err"></textarea>
+            <p class="field__error" id="f-msg-err" hidden></p>
+          </div>
+          <div class="hp" aria-hidden="true">
+            <label for="f-gotcha">Leave this field empty</label>
+            <input id="f-gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <div><button type="submit" class="btn btn--primary" id="form-submit"><span id="form-submit-label" data-i18n="form.send">Envoyer</span></button></div>
+          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          <p class="form__note"><span data-i18n="form.note">Les champs marqués d'un * sont obligatoires. Vous pouvez aussi m'écrire à</span> <a class="link link--accent" href="mailto:younes.sah06@gmail.com">younes.sah06@gmail.com</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================ PROJECT DETAIL ============================ -->
+<div class="view" id="view-project" hidden>
+  <div class="container page">
+    <nav aria-label="Breadcrumb" data-i18n-attr="aria-label:bc.label">
+      <ol class="breadcrumb">
+        <li><a href="#about" data-i18n="bc.home">Accueil</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+        <li aria-current="page" id="bc-project">Project</li>
+      </ol>
+    </nav>
+
+    <header class="pj-hero" id="pj-hero">
+      <div class="pj-hero__text">
+        <div class="project-card__meta" id="pj-badges"></div>
+        <h1 class="page-title" id="pj-title" tabindex="-1">Project</h1>
+        <p class="page-lead" id="pj-lead"></p>
+        <p class="pj-hero__meta">
+          <span class="pj-hero__meta-item"><span class="pj-hero__label" data-i18n="pj.period">Période</span><span id="pj-period"></span></span>
+          <span class="pj-hero__meta-item"><span class="pj-hero__label" data-i18n="pj.status">Statut</span><span id="pj-status"></span></span>
+        </p>
+        <p id="pj-article-cta" hidden><a class="btn btn--ghost" id="pj-article-cta-link" href="#"></a></p>
+      </div>
+      <div class="pj-hero__media" id="pj-thumb" hidden></div>
+    </header>
+
+    <ul class="stats" id="pj-stats" hidden></ul>
+    <ol class="phases" id="pj-phases" hidden></ol>
+
+    <div class="detail">
+      <div class="detail__main" id="pj-blocks"></div>
+
+      <aside class="detail__aside" aria-label="Project information" data-i18n-attr="aria-label:pj.aside">
+        <div class="aside-card">
+          <h2 class="aside-card__title" data-i18n="pj.tech">Technologies</h2>
+          <ul class="chips" id="pj-tech"></ul>
+        </div>
+        <div class="aside-card">
+          <h2 class="aside-card__title" data-i18n="pj.links">Liens</h2>
+          <div class="link-list" id="pj-links"></div>
+        </div>
+        <div class="aside-card" id="pj-team-card" hidden>
+          <h2 class="aside-card__title" data-i18n="pj.team">Équipe</h2>
+          <div class="link-list" id="pj-team"></div>
+        </div>
+        <div class="aside-card aside-toc-card" id="pj-toc-card" hidden>
+          <h2 class="aside-card__title" data-i18n="pj.onThisPage">Dans cette page</h2>
+          <ol class="aside-toc" id="pj-toc"></ol>
+        </div>
+      </aside>
+    </div>
+
+    <section class="detail__block project-gallery" id="pj-gallery-wrap" hidden>
+      <h2 data-i18n="pj.captures">Captures clés</h2>
+      <div class="gallery gallery--grid" id="pj-gallery"></div>
+    </section>
+
+    <section class="notice" id="pj-note" hidden>
+      <h2 data-i18n="pj.disclaimer">Avertissement</h2>
+      <p id="pj-note-text"></p>
+    </section>
+
+    <nav class="pager" id="pj-pager" aria-label="Project navigation" data-i18n-attr="aria-label:pj.pager">
+      <a href="#" id="pj-prev"></a><a href="#" id="pj-next"></a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============================== BLOG INDEX ============================== -->
+<div class="view" id="view-blog" hidden>
+  <div class="container page">
+    <nav aria-label="Breadcrumb" data-i18n-attr="aria-label:bc.label">
+      <ol class="breadcrumb"><li><a href="#about" data-i18n="bc.home">Accueil</a></li><li aria-current="page">Blog</li></ol>
+    </nav>
+    <header class="page-head">
+      <h1 class="page-title" tabindex="-1">Blog</h1>
+      <p class="page-lead" data-i18n="blog.lead">Des articles détaillés sur mes projets : la démarche, les choix techniques et ce que j'en retiens.</p>
+    </header>
+    <ul class="post-list" id="blog-list"></ul>
+  </div>
+</div>
+
+<!-- ============================= BLOG ARTICLE ============================= -->
+<div class="view" id="view-article" hidden>
+  <div class="container page">
+    <nav aria-label="Breadcrumb" data-i18n-attr="aria-label:bc.label">
+      <ol class="breadcrumb"><li><a href="#about" data-i18n="bc.home">Accueil</a></li><li><a href="#/blog">Blog</a></li><li aria-current="page"><span id="art-bc-title"></span></li></ol>
+    </nav>
+
+    <article class="article">
+      <header class="page-head" style="margin-bottom: var(--space-5)">
+        <div class="article__meta" id="art-meta"></div>
+        <h1 class="page-title" id="art-title" tabindex="-1" style="max-width:none"></h1>
+        <p class="page-lead" id="art-lead"></p>
+        <p class="article__meta" id="art-project"></p>
+      </header>
+
+      <div class="lang-note"><span class="badge badge--accent" data-i18n="art.langNow">FR</span><span data-i18n="art.langNote">Cet article existe aussi en anglais.</span> <a class="link link--accent" href="#" data-switch-lang="toggle" data-i18n="art.langSwitch">Lire en anglais</a></div>
+
+      <details class="toc" open>
+        <summary data-i18n="art.toc">Sommaire</summary>
+        <ol id="art-toc"></ol>
+      </details>
+
+      <div class="article__body" id="art-body"></div>
+
+      <section class="sources" id="art-sources-wrap" aria-labelledby="src-h">
+        <h2 id="src-h" data-i18n="art.h5">Sources</h2>
+        <ol id="art-sources"></ol>
+      </section>
+
+      <section class="related" aria-labelledby="rel-h">
+        <h2 class="subhead" id="rel-h" data-i18n="art.related">Projet lié et suite</h2>
+        <div class="related__grid" id="related-grid"></div>
+      </section>
+    </article>
+  </div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p>© <span id="footer-year">2026</span> <span data-i18n="brand.name">Younes Sahraoui</span></p>
+    <nav class="site-footer__links" aria-label="Footer" data-i18n-attr="aria-label:footer.label">
+      <a href="#/blog" data-blog-link data-i18n="footer.blog">Blog</a>
+      <a href="#top" data-top data-i18n="footer.top">Haut de page</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/i18n.js"></script>
+<!-- Project data: one file per project. app.js sorts them by `date` (newest first). -->
+<!-- Add a project by creating assets/js/projects/<slug>.js and listing it here. -->
+<script src="assets/js/projects/netscan.js"></script>
+<script src="assets/js/projects/pentest-metasploitable2.js"></script>
+<script src="assets/js/projects/demo.js"></script>
+<!-- Article data: one file per article. app.js sorts them by `date` (newest first). -->
+<script src="assets/js/articles/pentest-metasploitable2.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

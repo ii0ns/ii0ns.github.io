@@ -1,0 +1,189 @@
+/* ==========================================================================
+   DESIGN TOKENS — Developer portfolio
+   Single source of truth for the visual language.
+   - Theme-independent tokens live in :root
+   - Theme-dependent tokens live in [data-theme="dark"] / [data-theme="light"]
+   - Dark is the default theme (set data-theme="dark" on <html>)
+   Breakpoints cannot be CSS variables; they are documented here and used
+   literally in media queries:
+     --bp-md: 48rem   (768px)   tablet
+     --bp-lg: 68.75rem (1100px) desktop (inline navigation appears)
+   ========================================================================== */
+
+:root {
+  /* ---- Typography ------------------------------------------------------ */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: clamp(1.625rem, 1.2rem + 1.4vw, 2rem);
+  --text-3xl: clamp(2rem, 1.4rem + 2.2vw, 2.75rem);
+  --text-hero: clamp(2.5rem, 1.5rem + 4.2vw, 4rem);
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-mono: 0.02em;
+  --tracking-label: 0.08em;
+
+  /* ---- Spacing (4px base) ---------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --section-gap: clamp(5rem, 4rem + 4vw, 8rem);
+
+  /* ---- Layout ---------------------------------------------------------- */
+  --container: 64rem;
+  --measure: 42rem;          /* body copy on landing sections */
+  --measure-article: 44rem;  /* blog article reading column (~68ch) */
+  --gutter: clamp(1.25rem, 0.5rem + 3.5vw, 2rem);
+  --header-h: 3.5rem;
+
+  /* ---- Borders & radii ------------------------------------------------- */
+  --border-width: 1px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  /* ---- Motion ---------------------------------------------------------- */
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 450ms;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* ---- Layering -------------------------------------------------------- */
+  --z-header: 50;
+  --z-overlay: 60;
+  --z-proto: 70;
+
+  /* ---- Focus ----------------------------------------------------------- */
+  --focus-width: 2px;
+  --focus-offset: 3px;
+}
+
+/* ==========================================================================
+   DARK THEME (default)
+   Near-black with a faint teal-blue cast; one restrained teal accent.
+   ========================================================================== */
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0b1114;
+  --bg-blur: rgba(11, 17, 20, 0.82);
+  --surface: #10191d;
+  --surface-2: #152227;
+  --border: #1f2f35;
+  --border-strong: #2e444c;
+  --control-border: #647f88; /* >= 3:1 on --bg: form fields, toggles */
+
+  --text: #cfdadd;
+  --text-strong: #f0f6f7;
+  --text-muted: #94a8ae;
+  --text-subtle: #75898f;
+
+  --accent: #5fd4c4;
+  --accent-hover: #8ee6d9;
+  --accent-subtle: rgba(95, 212, 196, 0.1);
+  --accent-border: rgba(95, 212, 196, 0.35);
+  --on-accent: #06201c;
+
+  /* Placeholder marking (personal content to be replaced) */
+  --ph-text: #e8c56b;
+  --ph-bg: rgba(232, 197, 107, 0.1);
+  --ph-border: rgba(232, 197, 107, 0.55);
+
+  /* Form feedback */
+  --danger: #ff8a80;
+  --danger-bg: rgba(255, 138, 128, 0.1);
+  --danger-border: rgba(255, 138, 128, 0.45);
+
+  /* Code */
+  --code-bg: #0d1519;
+  --code-comment: #7b9097;
+  --code-keyword: #5fd4c4;
+  --code-string: #e2c27a;
+  --code-fn: #a9c7f0;
+
+  /* Project thumbnails */
+  --thumb-bg: #0f181c;
+  --thumb-grid: rgba(95, 212, 196, 0.06);
+  --thumb-name-a: #e6eef0;
+  --thumb-name-b: #5fd4c4;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 30px -14px rgba(0, 0, 0, 0.7);
+  --shadow-overlay: 0 24px 60px -20px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   LIGHT THEME
+   Warm-cool off-white, deep teal accent (AA on the page background).
+   ========================================================================== */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --bg: #f6f9f8;
+  --bg-blur: rgba(246, 249, 248, 0.85);
+  --surface: #ffffff;
+  --surface-2: #edf3f2;
+  --border: #dbe5e3;
+  --border-strong: #b9cac7;
+  --control-border: #738b87; /* >= 3:1 on --bg: form fields, toggles */
+
+  --text: #2a3a38;
+  --text-strong: #0b1615;
+  --text-muted: #4b5f5c;
+  --text-subtle: #5f7370;
+
+  --accent: #0f766e;
+  --accent-hover: #0a5750;
+  --accent-subtle: rgba(15, 118, 110, 0.08);
+  --accent-border: rgba(15, 118, 110, 0.35);
+  --on-accent: #ffffff;
+
+  --ph-text: #7a5200;
+  --ph-bg: rgba(190, 130, 0, 0.1);
+  --ph-border: rgba(150, 100, 0, 0.55);
+
+  --danger: #b42318;
+  --danger-bg: rgba(180, 35, 24, 0.07);
+  --danger-border: rgba(180, 35, 24, 0.4);
+
+  --code-bg: #eef4f3;
+  --code-comment: #566a65;
+  --code-keyword: #0f766e;
+  --code-string: #8a5a00;
+  --code-fn: #1d4f91;
+
+  --thumb-bg: #e9f1f0;
+  --thumb-grid: rgba(15, 118, 110, 0.07);
+  --thumb-name-a: #12201f;
+  --thumb-name-b: #0f766e;
+
+  --shadow-sm: 0 1px 2px rgba(11, 22, 21, 0.06);
+  --shadow-md: 0 12px 30px -16px rgba(11, 22, 21, 0.25);
+  --shadow-overlay: 0 24px 60px -24px rgba(11, 22, 21, 0.35);
+}
