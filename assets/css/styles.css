@@ -179,6 +179,17 @@ body.menu-open { overflow: hidden; }
 .cv-menu .tag { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-subtle); }
 .cv-menu a[data-current="true"] .tag { color: var(--accent); }
 
+/* ---------- About: hero + story ------------------------------------------ */
+/* A lit network sphere used to fill the right-hand column here. Measured at
+   1440 it sat in a 352x862 cell around a 312px globe: 59% of the cell was haze
+   and ~179 000 px2 could never be filled. No radius, alignment or parallax
+   changes that - a 2.45:1 box cannot hold a circle without cropping the
+   silhouette. So the figure is gone and the text is one centred column: the
+   leftover space becomes symmetric margin instead of a dead gutter. */
+.about { display: grid; gap: var(--space-7); max-width: var(--measure); margin-inline: auto; }
+/* Keeps the old 6rem hero -> prose rhythm (3rem grid gap + 3rem here). */
+.about > .hero { padding-bottom: var(--space-7); }
+
 /* ---------- Section chrome ------------------------------------------------ */
 .section-head { display: flex; align-items: center; gap: var(--space-4); margin-bottom: var(--space-6); }
 .section-head__num { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--accent); }

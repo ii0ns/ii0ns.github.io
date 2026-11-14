@@ -99,48 +99,40 @@
   <!-- 01 · HOME / ABOUT -->
   <section class="section" id="about" aria-labelledby="h-about">
     <div class="container">
-      <div class="hero">
-        <h1 class="hero__title" id="h-about"><span data-i18n="brand.name">Younes Sahraoui</span></h1>
-        <p class="hero__role" data-i18n="hero.role">Étudiant ingénieur en informatique.</p>
+      <div class="about">
+        <div class="hero">
+          <h1 class="hero__title" id="h-about"><span data-i18n="brand.name">Younes Sahraoui</span></h1>
+          <p class="hero__role" data-i18n="hero.role">Étudiant ingénieur en informatique.</p>
 
-        <!-- Availability indicator: hidden unless AVAILABILITY has at least one active entry -->
-        <p class="availability" id="availability" hidden role="status" data-proto-hook="availability">
-          <span class="availability__dot" aria-hidden="true"></span>
-          <span class="availability__text" id="availability-text"></span>
-        </p>
+          <!-- Availability indicator: hidden unless AVAILABILITY has at least one active entry -->
+          <p class="availability" id="availability" hidden role="status" data-proto-hook="availability">
+            <span class="availability__dot" aria-hidden="true"></span>
+            <span class="availability__text" id="availability-text"></span>
+          </p>
 
-        <p class="hero__lead" data-i18n-html="hero.lead">…</p>
+          <p class="hero__lead" data-i18n-html="hero.lead">…</p>
 
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#projects" data-i18n="cta.projects">Voir mes projets</a>
-          <details class="cv-split">
-            <summary class="btn" role="button" aria-haspopup="true"><span data-i18n="cta.cv">Télécharger mon CV</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-            </summary>
-            <div class="cv-menu">
-              <a href="assets/cv/cv-fr.pdf" data-cv="fr" download><span data-i18n="cv.fr">CV — Français (PDF)</span><span class="tag">cv-fr.pdf</span></a>
-              <a href="assets/cv/cv-en.pdf" data-cv="en" download><span data-i18n="cv.en">CV — English (PDF)</span><span class="tag">cv-en.pdf</span></a>
-            </div>
-          </details>
-          <a class="btn btn--ghost" href="#contact" data-i18n="cta.contact">Me contacter</a>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#projects" data-i18n="cta.projects">Voir mes projets</a>
+            <details class="cv-split">
+              <summary class="btn" role="button" aria-haspopup="true"><span data-i18n="cta.cv">Télécharger mon CV</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+              </summary>
+              <div class="cv-menu">
+                <a href="assets/cv/cv-fr.pdf" data-cv="fr" download><span data-i18n="cv.fr">CV — Français (PDF)</span><span class="tag">cv-fr.pdf</span></a>
+                <a href="assets/cv/cv-en.pdf" data-cv="en" download><span data-i18n="cv.en">CV — English (PDF)</span><span class="tag">cv-en.pdf</span></a>
+              </div>
+            </details>
+            <a class="btn btn--ghost" href="#contact" data-i18n="cta.contact">Me contacter</a>
+          </div>
         </div>
-      </div>
 
-      <div class="prose reveal" style="margin-top: var(--space-9)">
-        <h2 class="sr-only" data-i18n="about.heading">À propos</h2>
-        <p data-i18n-html="about.p1">…</p>
-        <p data-i18n-html="about.p2">…</p>
-        <p data-i18n-html="about.p3">…</p>
-      </div>
-
-      <div class="reveal" style="margin-top: var(--space-6)">
-        <h3 class="subhead" data-i18n="about.interestsTitle">Ce qui m'intéresse</h3>
-        <ul class="chips" aria-label="Centres d'intérêt" data-i18n-attr="aria-label:about.interestsTitle">
-          <li class="chip chip--accent"><span data-i18n="about.interest1">Infrastructures et réseaux</span></li>
-          <li class="chip chip--accent"><span data-i18n="about.interest2">Cybersécurité</span></li>
-          <li class="chip chip--accent"><span data-i18n="about.interest3">Intelligence artificielle</span></li>
-          <li class="chip chip--accent"><span data-i18n="about.interest4">Administration système</span></li>
-        </ul>
+        <div class="prose reveal">
+          <h2 class="sr-only" data-i18n="about.heading">À propos</h2>
+          <p data-i18n-html="about.p1">…</p>
+          <p data-i18n-html="about.p2">…</p>
+          <p data-i18n-html="about.p3">…</p>
+        </div>
       </div>
 
       <div style="margin-top: var(--space-9)">
@@ -431,6 +423,7 @@
 <script src="assets/js/projects/demo.js"></script>
 <!-- Article data: one file per article. app.js sorts them by `date` (newest first). -->
 <script src="assets/js/articles/pentest-metasploitable2.js"></script>
+<!-- About figure: hover layer for the network topology (decorative, no data) -->
 <script src="assets/js/app.js"></script>
 </body>
 </html>

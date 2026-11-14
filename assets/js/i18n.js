@@ -32,11 +32,7 @@ window.I18N = {
     "about.p1": "Actuellement étudiant en cycle d'ingénieur informatique à l'EILCO, je suis particulièrement intéressé par les technologies qui permettent de comprendre, sécuriser et faire évoluer les systèmes informatiques.",
     "about.p2": "Mon parcours en infrastructures digitales, réseaux et sécurité m'a permis de développer des bases en administration système, réseaux et cybersécurité. J'ai également exploré l'intelligence artificielle à travers des projets personnels, ce qui a renforcé mon intérêt pour ce domaine.",
     "about.p3": "J'aime apprendre en expérimentant, approfondir ma compréhension des technologies et relever des défis techniques à travers des projets concrets. Je cherche continuellement à élargir mes connaissances et à explorer de nouvelles possibilités dans ces domaines.",
-    "about.interestsTitle": "Ce qui m'intéresse",
-    "about.interest1": "Infrastructures et réseaux", "about.interest2": "Cybersécurité",
-    "about.interest3": "Intelligence artificielle", "about.interest4": "Administration système",
     "featured.title": "Projets à la une", "featured.all": "Voir tous les projets",
-
     "edu.title": "Formation",
     "common.present": "En cours",
     "skills.title": "Compétences",
@@ -154,9 +150,6 @@ window.I18N = {
     "about.p1": "I am currently an IT engineering student at EILCO, particularly interested in technologies that help us understand, secure, and improve computer systems.",
     "about.p2": "My background in digital infrastructure, networks, and security has allowed me to build a foundation in system administration, networking, and cybersecurity. I have also explored artificial intelligence through personal projects, further strengthening my interest in this field.",
     "about.p3": "I enjoy learning through experimentation, deepening my understanding of technology, and tackling technical challenges through hands-on projects. I am constantly looking to expand my knowledge and explore new possibilities in these fields.",
-    "about.interestsTitle": "What I'm interested in",
-    "about.interest1": "Infrastructure & networking", "about.interest2": "Cybersecurity",
-    "about.interest3": "Artificial intelligence", "about.interest4": "System administration",
     "featured.title": "Featured projects", "featured.all": "See all projects",
 
     "edu.title": "Education",
